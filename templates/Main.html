@@ -50,6 +50,12 @@
             border-radius: 20px;
             cursor: pointer;
         }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -70,8 +76,16 @@
 
         <button type="submit">Predict</button>
     </form>
+
     {% if risk is not none %}
     <h2>Risk Level: {{ risk }}</h2>
+    <div class="result">
+        {% if risk <= 0.5 %}
+            <p>Congratulations! You are healthy. Please keep maintaining your health.</p>
+        {% else %}
+            <p>You have heart disease symptoms. Please go to the hospital to check up.</p>
+        {% endif %}
+    </div>
     {% endif %}
 </body>
 </html>
